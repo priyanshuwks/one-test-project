@@ -3,11 +3,13 @@ import axios from "axios";
 import { useState } from "react";
 import { Loader } from "./Loader";
 import { SiTicktick } from "react-icons/si";
+import { GiSkullCrossedBones } from "react-icons/gi";
 
 function SignupComp(){
     const [inputs, setInputs] = useState({});
     const [loader, setLoader] = useState(false);
     const [signupSuccess, setSignupSuccess] = useState(false);
+    const [signupFailed, setSignupFailed] = useState(false);
     
     async function handleSignUp(){
         try {
@@ -23,6 +25,12 @@ function SignupComp(){
                     setTimeout(() => {
                         setSignupSuccess(false);
                     },3000);
+                }else{
+                    setSignupFailed(true);
+                    setTimeout(() => {
+                        setSignupFailed(false);
+                    },2000)
+                    setLoader(false);
                 }
             }
         } catch (err) {
@@ -56,6 +64,9 @@ function SignupComp(){
                         className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2 px-4 rounded">Sign Up</button>
                         <div className="flex items-center ml-[1px]">
                             {signupSuccess ? <SiTicktick /> : null}
+                        </div>
+                        <div className="flex items-center ml-[1px]">
+                            {signupFailed ? <GiSkullCrossedBones /> : null}
                         </div>
                     </div>
                     <div className="flex justify-center">

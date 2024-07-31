@@ -17,4 +17,18 @@ model User {
   id         Int      @id @default(autoincrement())
   username   String   @unique
   password   String
+  flats      Flat[]
+}
+
+model Flat {
+  id               Int       @id @default(autoincrement())
+  imageUrl         String?
+  flatSize         String?
+  description      String?
+  furnished        String?
+  price            Int?
+  requiredFor      String?
+  balconyFacing    String?
+  publisher        User     @relation(fields: [publisherId], references: [id])
+  publisherId      Int    
 }
