@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
-import z from "zod";
-
+import { PrismaClient } from "@prisma/client";
+const prisma = new PrismaClient();
 
 
 export async function POST(req : NextRequest){
     const body = await req.json();
 
-    const flatId = body.flatId;
+    const flatId = body.id;
     //validate flatId type
     if(typeof(flatId) !== 'number'){
         return NextResponse.json({
@@ -15,6 +15,21 @@ export async function POST(req : NextRequest){
         })
     }
 
-    
+    const deleteFlat = await prisma.flat.delete({
+        where : {
+            id : flatId
+        }
+    })
 
+    if(deleteFlat){
+        return NextResponse.json({
+            success : true,
+            msg : 'flat was deleted!',
+        })
+    }else{
+        return NextResponse.json({
+            success : false,
+            msg : 'flat deletion failed'
+        })
+    }
 }

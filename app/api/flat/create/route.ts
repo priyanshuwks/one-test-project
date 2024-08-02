@@ -4,14 +4,14 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 const createFlatSchema = z.object({
-    "imageUrl" : z.string(),
-    "flatSize" : z.string(),
-    "description" : z.string(),
-    "furnished" : z.string(),
-    "price" : z.number(),
-    "requiredFor" : z.string(),
-    "balconyFacing" : z.string(),
-    "publisherId" : z.number() 
+    "imageUrl" : z.string().optional(),
+    "flatSize" : z.string().optional(),
+    "description" : z.string().optional(),
+    "furnished" : z.string().optional(),
+    "price" : z.string().optional(),
+    "requiredFor" : z.string().optional(),
+    "balconyFacing" : z.string().optional(),
+    "publisherId" : z.string() 
 })
 export async function POST(req : NextRequest){
     const body = await req.json();
@@ -23,7 +23,7 @@ export async function POST(req : NextRequest){
             msg : 'body validation failed'
         })
     }
-    console.log('body was validated')
+
     const createFlat = await prisma.flat.create({
         data : body
     })
@@ -32,7 +32,7 @@ export async function POST(req : NextRequest){
     if(createFlat){
         return NextResponse.json({
             success : true,
-            msg : createFlat
+            msg : 'new Flat Vacancy saved'
         })
     }else{
         return NextResponse.json({

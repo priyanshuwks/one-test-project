@@ -1,7 +1,7 @@
 "use client";
 import axios from "axios";
 import { useState } from "react";
-import { Loader } from "./Loader";
+import { Loader } from "./loaders/Loader";
 import { SiTicktick } from "react-icons/si";
 import { GiSkullCrossedBones } from "react-icons/gi";
 

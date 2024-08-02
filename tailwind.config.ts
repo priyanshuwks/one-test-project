@@ -14,7 +14,9 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily : {
-        pacifico : ['Pacifico', 'cursive']
+        pacifico : ['Pacifico', 'cursive'],
+        basker : ['Libre Baskerville', 'serif'],
+        edu : ['Edu AU VIC WA NT Hand', 'cursive']
       }
     },
   },

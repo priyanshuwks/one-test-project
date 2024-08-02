@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Flat" ALTER COLUMN "price" SET DATA TYPE TEXT;

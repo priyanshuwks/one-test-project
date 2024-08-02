@@ -14,7 +14,7 @@ datasource db {
 }
 
 model User {
-  id         Int      @id @default(autoincrement())
+  id         String      @id @default(uuid())
   username   String   @unique
   password   String
   flats      Flat[]
@@ -26,9 +26,9 @@ model Flat {
   flatSize         String?
   description      String?
   furnished        String?
-  price            Int?
+  price            String?
   requiredFor      String?
   balconyFacing    String?
   publisher        User     @relation(fields: [publisherId], references: [id])
-  publisherId      Int    
+  publisherId      String    
 }
