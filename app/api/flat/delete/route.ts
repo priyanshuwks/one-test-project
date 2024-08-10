@@ -8,7 +8,7 @@ export async function POST(req : NextRequest){
 
     const flatId = body.id;
     //validate flatId type
-    if(typeof(flatId) !== 'number'){
+    if(typeof(flatId) !== 'string'){
         return NextResponse.json({
             success : false,
             msg : 'flatId should be Integer'
