@@ -10,15 +10,16 @@ function Flat(){
     return (
         <div>
             <div>
-                <div>
+                <div className="flex justify-center mt-4 mb-1">
                     <button 
-                    onClick={() => router.push('/flat/new')}
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Advertise Vacant Flat</button>
+                        onClick={() => router.push('/flat/new')}
+                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Advertise Vacant Flat
+                    </button>
                 </div>
             </div>
             
-
-            <FlatCard />
+            <div><FlatCard /></div>
+            
         </div>
     )
 }

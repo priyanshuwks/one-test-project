@@ -21,7 +21,8 @@ model User {
 }
 
 model Flat {
-  id               Int       @id @default(autoincrement())
+  id               String       @id @default(uuid())
+  createdAt        DateTime  @default(now())
   imageUrl         String?
   flatSize         String?
   description      String?

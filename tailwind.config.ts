@@ -1,3 +1,4 @@
+import { Grey_Qo } from "next/font/google";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -16,7 +17,8 @@ const config: Config = {
       fontFamily : {
         pacifico : ['Pacifico', 'cursive'],
         basker : ['Libre Baskerville', 'serif'],
-        edu : ['Edu AU VIC WA NT Hand', 'cursive']
+        edu : ['Edu AU VIC WA NT Hand', 'cursive'],
+        Grey_Qo : ['Grey Qo', 'cursive']
       }
     },
   },
