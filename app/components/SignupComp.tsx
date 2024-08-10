@@ -17,7 +17,7 @@ function SignupComp(){
                 alert('Input fields should not empty');
             }else{
                 setLoader(true);
-                const signupRes = await axios.post(`http://localhost:3000/api/test`, inputs);
+                const signupRes = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/test`, inputs);
                 if(signupRes.data.success){
                     setSignupSuccess(true);
                     console.log('user created');

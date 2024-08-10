@@ -28,7 +28,7 @@ function FlatCard(){
 
     async function fetchFlats(){
         console.log('inside fetch Flats fn')
-        const res = await axios.get(`http://localhost:3000/api/flat/get`);
+        const res = await axios.get(`process.env.NEXT_PUBLIC_BASE_URL/api/flat/get`);
         const resData = res.data; //object hai
         if(res.data){
             setFlats(resData.data);

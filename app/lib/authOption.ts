@@ -19,7 +19,7 @@ export const NEXT_AUTH = {
                 console.log(credentials);
 
                 //find the user in database
-                // const res = await axios.post(`http://localhost:3000/api/getuser`, credentials.username);
+                // const res = await axios.post(`process.env.NEXT_PUBLIC_BASE_URL/api/getuser`, credentials.username);
                 // console.log(res);
 
                 const res = await prisma.user.findUnique({

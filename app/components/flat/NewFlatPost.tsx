@@ -19,7 +19,7 @@ function NewFlatPost(){
             const body = {...flatDetails, publisherId : session.data.user._id}
             console.log('printing body')
             console.log(body)
-            const res = await axios.post(`http://localhost:3000/api/flat/create`, body);
+            const res = await axios.post(`process.env.NEXT_PUBLIC_BASE_URL/api/flat/create`, body);
             console.log(res)
             if(res.data.success){
                 setSaveFlat(true);
