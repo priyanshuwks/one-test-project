@@ -54,8 +54,8 @@ function FlatCard(){
                 } */}
 
                 {flats.map((flat, index) => {
-                    return <div className="">
-                        <RenderFlat key={index} oneFlat={flat}/>
+                    return <div key={index} className="">
+                        <RenderFlat oneFlat={flat}/>
                     </div>
                 })}
 
