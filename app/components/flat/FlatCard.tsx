@@ -1,3 +1,4 @@
+"use client";
 import axios from "axios";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -28,7 +29,7 @@ function FlatCard(){
 
     async function fetchFlats(){
         console.log('inside fetch Flats fn')
-        const res = await axios.get(`process.env.NEXT_PUBLIC_BASE_URL/api/flat/get`);
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/flat/get`);
         const resData = res.data; //object hai
         if(res.data){
             setFlats(resData.data);

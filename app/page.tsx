@@ -8,6 +8,8 @@ import { useSession } from "next-auth/react";
 export default function Home() {
   const session = useSession();
   console.log(session)
+  console.log('printing env varialbes')
+  console.log(process.env.NEXT_PUBLIC_BASE_URL)
   return (
     <div>
       <Navbar />
