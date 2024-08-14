@@ -29,19 +29,22 @@ function FlatCard(){
 
     async function fetchFlats(){
         console.log('inside fetch Flats fn')
-        const res = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/flat/get`);
-        const resData = res.data; //object hai
-        if(res.data){
-            setFlats(resData.data);
-            console.log('res ok')
-            console.log(res.data)
+        const axiosRes = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/flat/get`);
+        const backendData = axiosRes.data; //object hai
+        if(backendData.success){
+            console.log('printing backend object')
+            console.log(backendData)
+            setFlats(backendData.flats);
         }
     }
     if(flats.length == 0){
         console.log('rendering without res')
     }else{
-        console.log('rendering with')
+        console.log('rendering with res')
+        console.log('printing flats state variable')
         console.log(flats)
+        console.log('type of flats')
+        console.log(Array.isArray(flats))
     }
     return (
         <div className="flex justify-center items-center">
@@ -55,7 +58,7 @@ function FlatCard(){
                 } */}
 
                 {flats.map((flat, index) => {
-                    return <div key={index} className="">
+                    return <div className="" key={index}>
                         <RenderFlat oneFlat={flat}/>
                     </div>
                 })}
@@ -68,7 +71,7 @@ function FlatCard(){
 
 function RenderFlat({oneFlat} : any){
     return (
-        <div className="border rounded-lg shadow-2xl w-[350px] h-[330px]">
+        <div className="border rounded-lg shadow-2xl w-[350px] h-[360px]">
             <div className="flex justify-center">
                 <Image src={oneFlat.imageUrl} width={350} height={250} alt="flat-image"/>
             </div>

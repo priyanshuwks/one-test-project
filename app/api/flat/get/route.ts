@@ -43,7 +43,7 @@ export async function GET(req : NextRequest){
     if(allFlats){
         return NextResponse.json({
             success : true,
-            data : allFlats
+            flats : allFlats
         })
     }else{
         return NextResponse.json({
